@@ -57,11 +57,29 @@ App({
                 //                 }
                 //         }
                 // })
+
+                wx.getSystemInfo({
+                        success: function (res) {
+                                that.globalData.width = res.windowWidth
+                                that.globalData.height = res.windowHeight
+                                console.log('手机型号：' + res.model + '操作系统版本：' + res.system + '手机品牌：' + res.brand)
+                                console.log('设备像素比：' + res.pixelRatio)
+                                console.log('窗口宽度：' + res.windowWidth)
+                                console.log('窗口高度：' + res.windowHeight)
+                                console.log('微信设置的语言：' + res.language)
+                                console.log('微信版本号：' + res.version)
+                                console.log('客户端平台：' + res.platform + '客户端基础库版本：' + res.SDKVersion)
+                        }
+                });
+
         },
         globalData: {
                 userInfo: null,
                 clientId: '665ec80ab652a9ac22ff', // 从 BaaS 后台获取 ClientID
                 contentGroupID:"1524464040370541",
+                CategoryIDImage: "1524626071662657",
+                width:0,
+                height:0,
                 tableId: 34069, // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
         }
 })
